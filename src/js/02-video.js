@@ -11,8 +11,6 @@ const onPlay = function (event) {
 
 player.on('timeupdate', throttle(onPlay, 1000));
 
-if (savedCurrentTime) {
+if (savedCurrentTime !== 0) {
   player.setCurrentTime(savedCurrentTime);
-} else {
-  savedCurrentTime = 0;
 }
