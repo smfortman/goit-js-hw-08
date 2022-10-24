@@ -10,11 +10,6 @@ const refs = {
 refs.form.addEventListener('submit', onFormSubmit);
 refs.textarea.addEventListener('input', throttle(onTextareaInput, 500));
 
-// const form = document.querySelector('.feedback-form');
-
-// form.addEventListener('input', throttle(onTextareaInput, 500));
-// form.addEventListener('submit', onFormSubmit);
-
 function onFormSubmit(event) {
   event.preventDefault();
 
@@ -37,3 +32,9 @@ function populateTextarea() {
 }
 
 populateTextarea();
+
+const formData = {};
+
+refs.form.addEventListener('input', event => {
+  formData[event.target.name] = event.target.value;
+});
